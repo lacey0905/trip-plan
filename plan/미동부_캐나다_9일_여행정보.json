@@ -1,0 +1,129 @@
+{
+  "trip": {
+    "title": "미동부·캐나다 9일 여행",
+    "productCode": "NEP1165-261002YP00",
+    "duration": { "nights": 7, "days": 9 },
+    "departureDate": "2026-10-02",
+    "returnDate": "2026-10-10",
+    "minimumParticipants": 4,
+    "tourType": "현지 합류형 단체 패키지",
+    "tourLeaderIncluded": false,
+    "cities": ["워싱턴 D.C.", "볼티모어", "뉴욕", "보스턴", "콩코드", "퀘벡", "트루아리비에르", "몬트리올", "토론토", "나이아가라 폭포", "해리스버그"]
+  },
+  "flights": [
+    { "date": "2026-10-02", "flight": "YP135", "carrier": "에어프레미아", "from": "인천", "to": "워싱턴", "departureTime": "10:00", "arrivalTime": "10:50" },
+    { "date": "2026-10-09", "flight": "YP136", "carrier": "에어프레미아", "from": "워싱턴", "to": "인천", "departureTime": "13:20", "arrivalDate": "2026-10-10", "arrivalTime": "17:55" }
+  ],
+  "airportMeeting": {
+    "departure": "인천국제공항 제1터미널 3층 A카운터 11·12번",
+    "arrival": "워싱턴 도착 후 수하물 수령 및 세관 통과 뒤 출국장에서 노랑풍선 피켓 가이드와 미팅"
+  },
+  "pricing": {
+    "currency": "KRW",
+    "adult": 3899000,
+    "child": 3251320,
+    "infant": 1308280,
+    "includedTaxesAndSurcharges": 660600,
+    "depositPerPerson": 500000,
+    "depositDue": "예약 후 2일 이내",
+    "singleSupplement": 800000,
+    "guideAndDriverGratuities": { "currency": "USD", "amountPerPerson": 190 }
+  },
+  "itinerary": [
+    {
+      "day": 1,
+      "date": "2026-10-02",
+      "route": ["인천", "워싱턴", "볼티모어"],
+      "activities": ["워싱턴 덜레스 국제공항 도착", "국회의사당", "백악관 외부", "제퍼슨 기념관", "링컨 기념관", "스미소니언 자연사 박물관", "한국전 참전용사 기념비", "의회도서관 내부", "타이들베이슨", "볼티모어 이동"],
+      "meals": { "breakfast": null, "lunch": "자유식 (박물관 푸드코트)", "dinner": "현지식 또는 한식" },
+      "overnight": "볼티모어"
+    },
+    {
+      "day": 2,
+      "date": "2026-10-03",
+      "route": ["뉴욕"],
+      "activities": ["그라운드 제로 외부", "뉴욕 공립도서관", "센트럴파크"],
+      "optionalActivities": ["원 월드 트레이드 센터 전망대", "자유의 여신상 유람선"],
+      "meals": { "breakfast": "호텔식", "lunch": "자유식", "dinner": "다이너식 스파게티" },
+      "overnight": "뉴욕"
+    },
+    {
+      "day": 3,
+      "date": "2026-10-04",
+      "route": ["뉴욕", "보스턴", "콩코드"],
+      "activities": ["보스턴 프리덤 트레일 워킹 투어", "퀸시마켓", "하버드대학교 캠퍼스 및 기념품숍", "트레이더 조 방문", "콩코드 이동"],
+      "meals": { "breakfast": "호텔식", "lunch": "퀸시마켓 자유식", "dinner": "파이브가이즈" },
+      "overnight": "콩코드"
+    },
+    {
+      "day": 4,
+      "date": "2026-10-05",
+      "route": ["콩코드", "퀘벡", "트루아리비에르"],
+      "activities": ["샤토 프롱트낙 호텔", "뒤프랭 테라스", "목부러지는 계단", "쁘띠 샹플랭 거리", "화가의 거리", "트루아리비에르 이동"],
+      "meals": { "breakfast": "호텔식", "lunch": "퀘벡식 뷔페", "dinner": "현지식" },
+      "overnight": "트루아리비에르"
+    },
+    {
+      "day": 5,
+      "date": "2026-10-06",
+      "route": ["트루아리비에르", "몬트리올", "킹스턴", "토론토"],
+      "activities": ["자크 카르티에 광장", "몬트리올 구시가지 및 다름광장", "노트르담 성당 외부", "팀홀튼 커피·도넛 제공", "킹스턴 천섬 지역 경유", "토론토 방면 이동"],
+      "meals": { "breakfast": "호텔식", "lunch": "한식", "dinner": "현지식" },
+      "overnight": "토론토 인근"
+    },
+    {
+      "day": 6,
+      "date": "2026-10-07",
+      "route": ["토론토", "나이아가라 폭포"],
+      "activities": ["CN타워 외부", "로저스센터", "세인트로렌스 마켓", "테이블락", "꽃시계(하계)", "클리프턴힐", "아담백경 수력발전소"],
+      "meals": { "breakfast": "호텔식", "lunch": "캐나다 폭립·푸틴", "dinner": "자유식" },
+      "overnight": "나이아가라 폭포 지역"
+    },
+    {
+      "day": 7,
+      "date": "2026-10-08",
+      "route": ["나이아가라 폭포", "해리스버그"],
+      "activities": ["나이아가라 시티크루즈 선택관광", "REIF ESTATE WINERY 방문 및 와인 시음", "해리스버그 이동"],
+      "notes": ["동계에는 시티크루즈 대신 씨닉터널로 대체될 수 있음"],
+      "meals": { "breakfast": "호텔식", "lunch": "한식", "dinner": "북미식 쌀국수·스프링롤" },
+      "overnight": "해리스버그"
+    },
+    {
+      "day": 8,
+      "date": "2026-10-09",
+      "route": ["해리스버그", "워싱턴", "인천"],
+      "activities": ["호텔 조식", "워싱턴 덜레스 국제공항 이동", "YP136편 인천 출발"],
+      "meals": { "breakfast": "호텔식", "lunch": null, "dinner": null },
+      "overnight": "기내"
+    },
+    {
+      "day": 9,
+      "date": "2026-10-10",
+      "route": ["인천"],
+      "activities": ["17:55 인천국제공항 도착"],
+      "meals": { "breakfast": null, "lunch": null, "dinner": null }
+    }
+  ],
+  "included": ["에어프레미아 왕복 항공", "현지 차량", "전 일정 3성급 호텔", "일정 내 식사", "관광지 입장료", "국내·현지 공항세", "관광진흥개발기금", "전쟁보험료", "유류할증료", "1억원 여행자보험", "노랑풍선 마일리지 적립(조건 충족 시)"],
+  "excluded": ["기사·가이드 경비 및 식사 팁 USD 190/인", "ESTA", "선택관광", "매너팁", "개인경비", "자유식 4회", "나이아가라 폭포뷰 호텔 업그레이드"],
+  "optionalPackages": [
+    { "name": "베이직", "price": { "currency": "USD", "amountPerPerson": 280 }, "items": ["자유의 여신상 유람선", "원월드 전망대", "나이아가라 크루즈", "스카이론타워 전망대·특식", "뉴욕 야경투어"] },
+    { "name": "프리미엄", "price": { "currency": "USD", "amountPerPerson": 300 }, "items": ["천섬 유람선", "랍스터 특식", "몽모렌시 폭포·케이블카", "젯보트"] },
+    { "name": "베스트", "price": { "currency": "USD", "amountPerPerson": 350 }, "items": ["나이아가라 헬기투어", "씨닉터널", "CN타워", "바람의 동굴", "아우라쇼"] }
+  ],
+  "shopping": [
+    { "place": "REIF 와이너리", "items": ["와인"], "durationMinutes": 90 },
+    { "place": "DH 쇼핑센터", "items": ["오메가3", "아사이베리", "석청", "오일"], "durationMinutes": 60 },
+    { "place": "국경 면세점", "items": ["와인", "주류", "화장품", "잡화"], "durationMinutes": 60 }
+  ],
+  "preparation": ["여권 유효기간 6개월 이상 확인", "전자여권 소지자는 ESTA 승인 필요", "미국 비자면제 제한 국가 방문 이력 시 비자 요건 확인", "아동 동반 캐나다 입국 시 영문 증빙서류 준비 권장", "110V 플러그 변환 어댑터 준비", "슬리퍼·세면도구 준비", "출국 전 목적지 안전정보 확인"],
+  "cancellationPolicy": [
+    { "period": "출발 30일 전까지", "feeRate": 0, "note": "예약금 환불" },
+    { "period": "29~20일 전", "feeRate": 10 },
+    { "period": "19~10일 전", "feeRate": 15 },
+    { "period": "9~8일 전", "feeRate": 20 },
+    { "period": "7~1일 전", "feeRate": 30 },
+    { "period": "당일", "feeRate": 50 }
+  ],
+  "notes": ["항공권 발권 후 별도 취소 패널티가 추가될 수 있음", "선택관광 미참여 시 주변 자유시간으로 진행", "호텔은 예정 호텔이며 출발 1~2일 전 확정 안내", "객실은 대부분 2인 1실 기준"]
+}

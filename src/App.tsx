@@ -29,8 +29,8 @@ function TripList({ onSelect }: { onSelect: (id: string) => void }) {
     <header className="gnb"><span>여행 목록</span></header>
     <section className="main-banner"><img src={`${import.meta.env.BASE_URL}og.png`} alt="주슬기의 여행 일정" /></section>
     <section className="trip-list">
-      <h1>여행을 선택하세요</h1>
-      <p>총 {trips.length}개의 여행 JSON이 있습니다. `plan`에 JSON을 추가하면 목록에 자동으로 표시됩니다.</p>
+      <h1>슬기의 여행 플랜</h1>
+      <p>슬기의 다음 계절을 위해 고른 {trips.length}개의 여정. 설레는 일정과 1인 1실 총액을 천천히 살펴보세요.</p>
       <div>{trips.map(({ id, data }) => <button key={id} type="button" onClick={() => onSelect(id)}>
         <span>{data.여행.기간} · {data.필수정보.출발상태}</span>
         <b>{data.여행.상품명}</b>

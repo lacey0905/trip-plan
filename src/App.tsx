@@ -26,16 +26,16 @@ const priceStyle = (amount: number): CSSProperties => {
 
 function TripList({ onSelect }: { onSelect: (id: string) => void }) {
   return <main>
-    <header className="gnb"><span>여행 목록</span></header>
-    <section className="main-banner"><img src={`${import.meta.env.BASE_URL}og.png`} alt="주슬기의 여행 일정" /></section>
+    <header className="gnb"><span>슬기의 여행 플랜</span></header>
+    <section className="main-banner"><img src={`${import.meta.env.BASE_URL}og.png`} alt="주슬기의 이름이 담긴 여행 플랜 배너" /></section>
     <section className="trip-list">
-      <h1>슬기의 여행 플랜</h1>
-      <p>슬기의 다음 계절을 위해 고른 {trips.length}개의 여정. 설레는 일정과 1인 1실 총액을 천천히 살펴보세요.</p>
+      <h1>슬기를 위한 여행들</h1>
+      <p>슬기의 다음 여행이 오래 기억될 수 있도록, 마음에 남을 여정들을 모았어요. 일정과 비용을 살펴보며 가장 설레는 곳을 골라보세요.</p>
       <div>{trips.map(({ id, data }) => <button key={id} type="button" onClick={() => onSelect(id)}>
         <span>{data.여행.기간} · {data.필수정보.출발상태}</span>
         <b>{data.여행.상품명}</b>
         <small>{data.여행.주요여정}</small>
-        <em className="price-amount" style={priceStyle(data.예상금액['1인_성인_예상총액'])}>1인 1실 총액 ₩{won.format(data.예상금액['1인_성인_예상총액'])}</em>
+        <em className="price-amount" style={priceStyle(data.예상금액['1인_성인_예상총액'])}>1인 1실 예상 총액 ₩{won.format(data.예상금액['1인_성인_예상총액'])}</em>
         <i>›</i>
       </button>)}</div>
     </section>
@@ -46,19 +46,19 @@ function TripDetail({ data, onBack }: { data: TravelData; onBack: () => void }) 
   const { 여행: trip, 필수정보: essentials, 일정: itinerary, 예상금액: cost } = data
   const singleTotal = cost['1인_성인_예상총액']
   return <main>
-    <header className="gnb"><button type="button" onClick={onBack} aria-label="목록으로">‹</button><span>여행 일정</span></header>
-    <section className="trip-summary"><p>{trip.기간} · {essentials.출발상태}</p><h1>{trip.상품명}</h1><span className="code">{trip.상품코드}</span><a className="source-link" href={trip.원본링크} target="_blank" rel="noreferrer">원본 상품 보기 ↗</a></section>
+    <header className="gnb"><button type="button" onClick={onBack} aria-label="여행 목록으로 돌아가기">‹</button><span>여행 자세히 보기</span></header>
+    <section className="trip-summary"><p>{trip.기간} · {essentials.출발상태}</p><h1>{trip.상품명}</h1><span className="code">{trip.상품코드}</span><a className="source-link" href={trip.원본링크} target="_blank" rel="noreferrer">여행사 상품 페이지 ↗</a></section>
     <section className="cost">
-      <h2>예상 비용</h2>
-      <div className="cost-total" style={priceStyle(singleTotal)}><span>1인 1실 총액</span><strong>₩{won.format(singleTotal)}</strong></div>
+      <h2>여행 비용</h2>
+      <div className="cost-total" style={priceStyle(singleTotal)}><span>1인 1실 예상 총액</span><strong>₩{won.format(singleTotal)}</strong></div>
       <div className="cost-list">{cost.산출근거.map((item) => <div key={item.항목}><span>{item.항목}<small>{item.계산}</small></span><b>₩{won.format(item.금액)}</b></div>)}</div>
-      <div className="included"><h3>상품가에 포함</h3><p>{cost.포함.join(' · ')}</p><h3>필수 현지 경비에 포함</h3><p>기사·가이드 경비 및 식사 팁</p><h3>별도 비용</h3><p>{cost.별도_변동비.join(' · ')}</p></div>
-      <p className="notice">{cost.안내}{cost.공식상품가격범위 ? ' 공식 상품군 가격은 ₩' + won.format(cost.공식상품가격범위.최저) + '~₩' + won.format(cost.공식상품가격범위.최고) + '이며 출발일에 따라 달라집니다.' : ''}</p>
+      <div className="included"><h3>상품가에 포함된 항목</h3><p>{cost.포함.join(' · ')}</p><h3>추가로 확인할 비용</h3><p>{cost.별도_변동비.join(' · ')}</p></div>
+      <p className="notice">{cost.안내}{cost.공식상품가격범위 && cost.공식상품가격범위.최저 !== cost.공식상품가격범위.최고 ? ' 여행사 안내 상품가 범위는 ₩' + won.format(cost.공식상품가격범위.최저) + '~₩' + won.format(cost.공식상품가격범위.최고) + '입니다.' : ''}</p>
     </section>
-    <section className="info-list"><h2>여행 정보</h2><div><span>여행 형태</span><b>{trip.형태}</b></div><div><span>최소 출발</span><b>{essentials.최소출발인원}명 이상</b></div><div><span>주요 여정</span><b>{trip.주요여정}</b></div></section>
-    <section className="itinerary"><h2>일정</h2><div className="timeline">{itinerary.map((day) => <article key={day.일차}><div className="day"><span>DAY</span><b>{String(day.일차).padStart(2, '0')}</b></div><div className="route"><b>{day.날짜}</b><span>{day.동선}</span><p>{day.핵심}</p><small>{day.숙박 ? '숙박 · ' + day.숙박 : '인천 도착'}</small></div></article>)}</div></section>
-    <section className="flight"><h2>항공</h2>{essentials.항공.map((flight) => <article key={flight.항공편}><b>{flight.구간}</b><span>{flight.항공편}</span><small>{flight.일자} · {flight.시간}</small></article>)}<p>출국 미팅 · {essentials.출국미팅}</p></section>
-    <section className="prepare"><h2>출발 전 준비</h2>{essentials.준비.map((item) => <p key={item}>✓ {item}</p>)}</section>
+    <section className="info-list"><h2>여행 한눈에 보기</h2><div><span>여행 형태</span><b>{trip.형태}</b></div><div><span>최소 출발 인원</span><b>{essentials.최소출발인원}명 이상</b></div><div><span>주요 여정</span><b>{trip.주요여정}</b></div></section>
+    <section className="itinerary"><h2>날짜별 일정</h2><div className="timeline">{itinerary.map((day) => <article key={day.일차}><div className="day"><span>DAY</span><b>{String(day.일차).padStart(2, '0')}</b></div><div className="route"><b>{day.날짜}</b><span>{day.동선}</span><p>{day.핵심}</p>{day.숙박 && <small>숙박 · {day.숙박}</small>}</div></article>)}</div></section>
+    <section className="flight"><h2>항공 일정</h2>{essentials.항공.map((flight) => <article key={flight.항공편}><b>{flight.구간}</b><span>{flight.항공편}</span><small>{flight.일자} · {flight.시간}</small></article>)}<p>출국 미팅 · {essentials.출국미팅}</p></section>
+    <section className="prepare"><h2>떠나기 전 체크</h2>{essentials.준비.map((item) => <p key={item}>✓ {item}</p>)}</section>
   </main>
 }
 

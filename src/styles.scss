@@ -1,4 +1,311 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
-
-$ink:#1f2325;$line:#e2e5e7;$soft:#f6f7f7;$muted:#6a7176;$accent:#b23a2f;
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:$ink;background:#fff;font:13px/1.55 'Noto Sans KR',sans-serif}main{width:100%;max-width:430px;margin:auto;padding:0 18px 40px}.gnb{height:52px;display:flex;align-items:center;gap:13px;border-bottom:1px solid $line;position:sticky;top:0;z-index:2;background:#fff}.gnb button{width:30px;height:30px;padding:0;border:0;background:none;color:$ink;font:31px/22px sans-serif;cursor:pointer}.gnb span{font-size:14px;font-weight:600}section{margin-top:31px}h1{margin:5px 0 0;font-size:26px;line-height:1.25;letter-spacing:-.05em}h2{margin:0 0 11px;font-size:18px;letter-spacing:-.04em}.trip-summary{margin-top:22px}.trip-summary>p,.code{font:10px 'DM Mono',monospace;color:$muted}.code{display:block;margin-top:5px}.total{display:grid;grid-template-columns:1fr;margin-top:18px;padding:14px;background:$soft;border:1px solid $line}.total span,.total small{font-size:11px;color:$muted}.total strong{margin:3px 0;font:700 25px 'DM Mono','Noto Sans KR',sans-serif;letter-spacing:-.06em}.key-points ul{margin:0;padding:0;list-style:none;border-top:1px solid $line}.key-points li{padding:11px 2px 11px 18px;border-bottom:1px solid $line;position:relative;font-size:12px}.key-points li:before{content:'•';position:absolute;left:4px;color:$accent}.timeline{border-top:2px solid $ink}.timeline article{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:12px 2px;border-bottom:1px solid $line}.day{font-family:'DM Mono',monospace}.day span{display:block;font-size:9px;color:$muted}.day b{font-size:16px}.route{display:flex;flex-direction:column}.route>b{font:11px 'DM Mono',monospace}.route>span{font-size:12px;color:$muted}.route p{margin:3px 0;font-size:12px}.route small{font-size:10px;color:$muted}.info-list{border-top:2px solid $ink}.info-list h2{margin-top:-30px;transform:translateY(-2px)}.info-list div{display:flex;justify-content:space-between;gap:15px;padding:11px 2px;border-bottom:1px solid $line}.info-list span{font-size:11px;color:$muted}.info-list b{max-width:65%;font-size:12px;text-align:right}.flight{border-top:2px solid $ink}.flight h2{margin-top:-30px;transform:translateY(-2px)}.flight article{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:11px 2px;border-bottom:1px solid $line}.flight b{font-size:13px}.flight span{font:10px 'DM Mono',monospace;color:$muted;text-align:right}.flight small{grid-column:1/-1;color:$muted;font-size:10px}.flight p,.notice{margin:9px 0 0;font-size:10px;color:$muted;line-height:1.65}.cost{margin:31px -18px 0;padding:18px;background:$soft;border-top:1px solid $line;border-bottom:1px solid $line}.cost-total{padding:13px 14px;background:#fff;border:1px solid $ink}.cost-total span{font-size:11px;color:$muted}.cost-total strong{display:block;margin-top:2px;font:700 25px 'DM Mono','Noto Sans KR',sans-serif;letter-spacing:-.06em}.cost-list{padding:3px 14px;background:#fff;border:1px solid $line;border-top:0}.cost-list div{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dotted $line}.cost-list div:last-child{border:0}.cost-list span{font-size:12px}.cost-list small{display:block;font-size:10px;color:$muted}.cost-list b{white-space:nowrap;font:600 12px 'DM Mono',monospace}.included{margin-top:12px;padding:12px 14px;background:#fff;border:1px solid $line}.included h3{margin:0;font-size:11px}.included p{margin:3px 0 12px;color:$muted;font-size:11px}.included p:last-child{margin-bottom:0}.prepare p{margin:0;padding:10px 2px;border-bottom:1px solid $line;font-size:12px}
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&family=Noto+Sans+KR:wght@400;500;600;700&display=swap");
+$ink: #1f2325;
+$line: #e2e5e7;
+$soft: #f6f7f7;
+$muted: #6a7176;
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: $ink;
+  background: #fff;
+  font:
+    13px/1.55 "Noto Sans KR",
+    sans-serif;
+}
+main {
+  width: 100%;
+  max-width: 430px;
+  margin: auto;
+  padding: 0 18px 40px;
+}
+.gnb {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+  border-bottom: 1px solid $line;
+}
+.gnb button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $ink;
+  font: 31px/22px sans-serif;
+  cursor: pointer;
+}
+.gnb span {
+  font-size: 14px;
+  font-weight: 600;
+}
+section {
+  margin-top: 32px;
+}
+h1 {
+  margin: 5px 0 0;
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: -0.05em;
+}
+h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+}
+.trip-list {
+  margin-top: 24px;
+}
+.trip-list > p {
+  margin: 6px 0 22px;
+  color: $muted;
+  font-size: 12px;
+}
+.trip-list > div {
+  border-top: 2px solid $ink;
+}
+.trip-list button {
+  position: relative;
+  width: 100%;
+  padding: 14px 30px 14px 2px;
+  text-align: left;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid $line;
+  color: $ink;
+  cursor: pointer;
+}
+.trip-list button > span {
+  display: block;
+  font:
+    10px "DM Mono",
+    monospace;
+  color: $muted;
+}
+.trip-list button > b {
+  display: block;
+  margin: 3px 0;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+}
+.trip-list button > small {
+  display: block;
+  overflow: hidden;
+  color: $muted;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.trip-list button > em {
+  display: block;
+  margin-top: 6px;
+  font:
+    600 11px "DM Mono",
+    "Noto Sans KR",
+    sans-serif;
+  font-style: normal;
+}
+.trip-list button > i {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  color: $muted;
+  font: 26px/1 sans-serif;
+  transform: translateY(-50%);
+}
+.trip-summary {
+  margin-top: 22px;
+}
+.trip-summary > p,
+.code {
+  font:
+    10px "DM Mono",
+    monospace;
+  color: $muted;
+}
+.code {
+  display: block;
+  margin-top: 5px;
+}
+.source-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: $ink;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cost-total {
+  padding: 14px;
+  background: $soft;
+  border: 1px solid $ink;
+  border-bottom: 0;
+}
+.cost-total span {
+  font-size: 11px;
+  color: $muted;
+}
+.cost-total strong {
+  display: block;
+  margin-top: 2px;
+  font:
+    700 25px "DM Mono",
+    "Noto Sans KR",
+    sans-serif;
+  letter-spacing: -0.06em;
+}
+.cost-list {
+  padding: 3px 14px;
+  background: #fff;
+  border: 1px solid $ink;
+  border-top: 1px solid $line;
+}
+.cost-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dotted $line;
+}
+.cost-list div:last-child {
+  border: 0;
+}
+.cost-list span {
+  font-size: 12px;
+}
+.cost-list small {
+  display: block;
+  font-size: 10px;
+  color: $muted;
+}
+.cost-list b {
+  white-space: nowrap;
+  font:
+    600 12px "DM Mono",
+    monospace;
+}
+.included {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: $soft;
+  border: 1px solid $line;
+}
+.included h3 {
+  margin: 0;
+  font-size: 11px;
+}
+.included h3:not(:first-child) {
+  margin-top: 13px;
+}
+.included p {
+  margin: 3px 0 0;
+  color: $muted;
+  font-size: 11px;
+}
+.notice,
+.flight > p {
+  margin: 9px 0 0;
+  color: $muted;
+  font-size: 10px;
+  line-height: 1.65;
+}
+.timeline {
+  border-top: 2px solid $ink;
+}
+.timeline article {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  padding: 12px 2px;
+  border-bottom: 1px solid $line;
+}
+.day {
+  font-family: "DM Mono", monospace;
+}
+.day span {
+  display: block;
+  font-size: 9px;
+  color: $muted;
+}
+.day b {
+  font-size: 16px;
+}
+.route {
+  display: flex;
+  flex-direction: column;
+}
+.route > b {
+  font:
+    11px "DM Mono",
+    monospace;
+}
+.route > span {
+  font-size: 12px;
+  color: $muted;
+}
+.route p {
+  margin: 3px 0;
+  font-size: 12px;
+}
+.route small {
+  font-size: 10px;
+  color: $muted;
+}
+.info-list div,
+.flight article {
+  border-top: 1px solid $line;
+}
+.info-list div:first-of-type,
+.flight article:first-of-type {
+  border-top: 2px solid $ink;
+}
+.info-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 11px 2px;
+}
+.info-list span {
+  font-size: 11px;
+  color: $muted;
+}
+.info-list b {
+  max-width: 65%;
+  font-size: 12px;
+  text-align: right;
+}
+.flight article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 10px;
+  padding: 11px 2px;
+}
+.flight b {
+  font-size: 13px;
+}
+.flight span {
+  font:
+    10px "DM Mono",
+    monospace;
+  color: $muted;
+  text-align: right;
+}
+.flight small {
+  grid-column: 1/-1;
+  color: $muted;
+  font-size: 10px;
+}
+.prepare p {
+  margin: 0;
+  padding: 10px 2px;
+  border-bottom: 1px solid $line;
+  font-size: 12px;
+}

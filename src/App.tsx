@@ -27,6 +27,7 @@ const priceStyle = (amount: number): CSSProperties => {
 function TripList({ onSelect }: { onSelect: (id: string) => void }) {
   return <main>
     <header className="gnb"><span>여행 목록</span></header>
+    <section className="main-banner"><img src={`${import.meta.env.BASE_URL}og.png`} alt="주슬기의 여행 일정" /></section>
     <section className="trip-list">
       <h1>여행을 선택하세요</h1>
       <p>총 {trips.length}개의 여행 JSON이 있습니다. `plan`에 JSON을 추가하면 목록에 자동으로 표시됩니다.</p>

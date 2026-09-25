@@ -1,7 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 
 type TravelData = {
-  여행: { 상품명: string; 상품코드: string; 기간: string; 형태: string; 주요여정: string; 원본링크: string }
+  여행: { 상품명: string; 상품코드: string; 기간: string; 형태: string; 주요여정: string; 원본링크: string; 추가판매링크?: { 이름: string; URL: string }[] }
   필수정보: { 최소출발인원: number; 출발상태: string; 좌석등급: string; 귀국일연장: string; 항공: { 일자: string; 항공편: string; 구간: string; 시간: string }[]; 출국미팅: string; 준비: string[] }
   일정: { 일차: number; 날짜: string; 동선: string; 핵심: string; 숙박?: string }[]
   예상금액: { '1인_성인_예상총액': number | null; 산출근거: { 항목: string; 금액: number; 계산?: string }[]; 포함: string[]; 별도_변동비: string[]; 싱글차지: { 금액: number | null; 설명: string }; 안내: string; 공식상품가격범위?: { 최저: number; 최고: number } }
@@ -31,6 +31,8 @@ const priceStyle = (amount: number): CSSProperties => {
     '--price-color': `hsl(${hue} 100% 45%)`,
   } as CSSProperties
 }
+const pendingPriceStyle = { '--price-color': '#1769c2' } as CSSProperties
+const shownPrice = (cost: TravelData['예상금액']) => cost['1인_성인_예상총액'] ?? cost.공식상품가격범위?.최저 ?? cost.산출근거[0]?.금액
 
 function TripList({ onSelect }: { onSelect: (id: string) => void }) {
   return <main>
@@ -43,7 +45,7 @@ function TripList({ onSelect }: { onSelect: (id: string) => void }) {
         <span>{showWeekdays(data.여행.기간)} · {data.필수정보.출발상태}</span>
         <b>{data.여행.상품명}</b>
         <small>{data.여행.주요여정}</small>
-        <em className="price-amount" style={data.예상금액['1인_성인_예상총액'] !== null ? priceStyle(data.예상금액['1인_성인_예상총액']) : undefined}>1인 1실 예상 총액 {data.예상금액['1인_성인_예상총액'] !== null ? `₩${won.format(data.예상금액['1인_성인_예상총액'])}` : '확인 필요'}</em>
+        <em className="price-amount" style={data.예상금액['1인_성인_예상총액'] !== null ? priceStyle(data.예상금액['1인_성인_예상총액']) : pendingPriceStyle}>{data.예상금액['1인_성인_예상총액'] !== null ? `1인 1실 예상 총액 ₩${won.format(data.예상금액['1인_성인_예상총액'])}` : `상품가 ${shownPrice(data.예상금액) !== undefined ? `₩${won.format(shownPrice(data.예상금액)!)}` : '확인 필요'} · 1인 1실 추가비용 별도 문의`}</em>
         <i>›</i>
       </button>)}</div>
     </section>
@@ -55,10 +57,10 @@ function TripDetail({ data, onBack }: { data: TravelData; onBack: () => void }) 
   const singleTotal = cost['1인_성인_예상총액']
   return <main>
     <header className="gnb"><button type="button" onClick={onBack} aria-label="여행 목록으로 돌아가기">‹</button><span>여행 자세히 보기</span></header>
-    <section className="trip-summary"><p>{showWeekdays(trip.기간)} · {essentials.출발상태}</p><h1>{trip.상품명}</h1><span className="code">{trip.상품코드}</span><a className="source-link" href={trip.원본링크} target="_blank" rel="noreferrer">여행사 상품 페이지 ↗</a></section>
+    <section className="trip-summary"><p>{showWeekdays(trip.기간)} · {essentials.출발상태}</p><h1>{trip.상품명}</h1><span className="code">{trip.상품코드}</span><a className="source-link" href={trip.원본링크} target="_blank" rel="noreferrer">여행사 상품 페이지 ↗</a>{trip.추가판매링크?.map((link) => <a key={link.URL} className="source-link" href={link.URL} target="_blank" rel="noreferrer">{link.이름} 상품 페이지 ↗</a>)}</section>
     <section className="cost">
       <h2>여행 비용</h2>
-      <div className="cost-total" style={singleTotal !== null ? priceStyle(singleTotal) : undefined}><span>1인 1실 예상 총액</span><strong>{singleTotal !== null ? `₩${won.format(singleTotal)}` : '확인 필요'}</strong></div>
+      <div className="cost-total" style={singleTotal !== null ? priceStyle(singleTotal) : pendingPriceStyle}><span>{singleTotal !== null ? '1인 1실 예상 총액' : '성인 1인 상품 표시가 · 1인 1실 추가비용 별도 문의'}</span><strong>{singleTotal !== null ? `₩${won.format(singleTotal)}` : shownPrice(cost) !== undefined ? `₩${won.format(shownPrice(cost)!)}` : '확인 필요'}</strong></div>
       <div className="cost-list">{cost.산출근거.map((item) => <div key={item.항목}><span>{item.항목}<small>{item.계산}</small></span><b>₩{won.format(item.금액)}</b></div>)}</div>
       <div className="included"><h3>상품가에 포함된 항목</h3><p>{cost.포함.join(' · ')}</p><h3>추가로 확인할 비용</h3><p>{cost.별도_변동비.join(' · ')}</p></div>
       <p className="notice">{cost.안내}{cost.공식상품가격범위 && cost.공식상품가격범위.최저 !== cost.공식상품가격범위.최고 ? ' 여행사 안내 상품가 범위는 ₩' + won.format(cost.공식상품가격범위.최저) + '~₩' + won.format(cost.공식상품가격범위.최고) + '입니다.' : ''}</p>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 
 type TravelData = {
   여행: { 상품명: string; 상품코드: string; 기간: string; 형태: string; 주요여정: string; 원본링크: string }
@@ -12,7 +12,17 @@ const won = new Intl.NumberFormat('ko-KR')
 const travelFiles = import.meta.glob<TravelData>('../plan/*.json', { eager: true, import: 'default' })
 const trips = Object.entries(travelFiles)
   .map(([id, data]) => ({ id, data }))
-  .sort((a, b) => a.data.여행.기간.localeCompare(b.data.여행.기간))
+  .sort((a, b) => a.data.예상금액['1인_성인_예상총액'] - b.data.예상금액['1인_성인_예상총액'])
+const tripCosts = trips.map((trip) => trip.data.예상금액['1인_성인_예상총액'])
+const lowestTripCost = Math.min(...tripCosts)
+const highestTripCost = Math.max(...tripCosts)
+const priceStyle = (amount: number): CSSProperties => {
+  const position = highestTripCost === lowestTripCost ? 0.5 : (amount - lowestTripCost) / (highestTripCost - lowestTripCost)
+  const hue = 220 + position * 140
+  return {
+    '--price-color': `hsl(${hue} 100% 45%)`,
+  } as CSSProperties
+}
 
 function TripList({ onSelect }: { onSelect: (id: string) => void }) {
   return <main>
@@ -24,7 +34,7 @@ function TripList({ onSelect }: { onSelect: (id: string) => void }) {
         <span>{data.여행.기간} · {data.필수정보.출발상태}</span>
         <b>{data.여행.상품명}</b>
         <small>{data.여행.주요여정}</small>
-        <em>1인 1실 총액 ₩{won.format(data.예상금액['1인_성인_예상총액'])}</em>
+        <em className="price-amount" style={priceStyle(data.예상금액['1인_성인_예상총액'])}>1인 1실 총액 ₩{won.format(data.예상금액['1인_성인_예상총액'])}</em>
         <i>›</i>
       </button>)}</div>
     </section>
@@ -39,7 +49,7 @@ function TripDetail({ data, onBack }: { data: TravelData; onBack: () => void }) 
     <section className="trip-summary"><p>{trip.기간} · {essentials.출발상태}</p><h1>{trip.상품명}</h1><span className="code">{trip.상품코드}</span><a className="source-link" href={trip.원본링크} target="_blank" rel="noreferrer">원본 상품 보기 ↗</a></section>
     <section className="cost">
       <h2>예상 비용</h2>
-      <div className="cost-total"><span>1인 1실 총액</span><strong>₩{won.format(singleTotal)}</strong></div>
+      <div className="cost-total" style={priceStyle(singleTotal)}><span>1인 1실 총액</span><strong>₩{won.format(singleTotal)}</strong></div>
       <div className="cost-list">{cost.산출근거.map((item) => <div key={item.항목}><span>{item.항목}<small>{item.계산}</small></span><b>₩{won.format(item.금액)}</b></div>)}</div>
       <div className="included"><h3>상품가에 포함</h3><p>{cost.포함.join(' · ')}</p><h3>필수 현지 경비에 포함</h3><p>기사·가이드 경비 및 식사 팁</p><h3>별도 비용</h3><p>{cost.별도_변동비.join(' · ')}</p></div>
       <p className="notice">{cost.안내}{cost.공식상품가격범위 ? ' 공식 상품군 가격은 ₩' + won.format(cost.공식상품가격범위.최저) + '~₩' + won.format(cost.공식상품가격범위.최고) + '이며 출발일에 따라 달라집니다.' : ''}</p>

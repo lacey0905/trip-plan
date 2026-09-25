@@ -107,7 +107,7 @@ h2 {
   display: block;
   margin-top: 6px;
   font:
-    600 11px "DM Mono",
+    700 11px "DM Mono",
     "Noto Sans KR",
     sans-serif;
   font-style: normal;
@@ -145,22 +145,30 @@ h2 {
 }
 .cost-total {
   padding: 14px;
-  background: $soft;
-  border: 1px solid $ink;
+  background: var(--price-color);
+  border: 1px solid var(--price-color);
   border-bottom: 0;
 }
 .cost-total span {
   font-size: 11px;
-  color: $muted;
+  color: #fff;
 }
 .cost-total strong {
   display: block;
   margin-top: 2px;
+  color: #fff;
   font:
     700 25px "DM Mono",
     "Noto Sans KR",
     sans-serif;
   letter-spacing: -0.06em;
+}
+.price-amount {
+  width: fit-content;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background: var(--price-color);
+  color: #fff;
 }
 .cost-list {
   padding: 3px 14px;

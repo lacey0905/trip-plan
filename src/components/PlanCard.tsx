@@ -22,6 +22,11 @@ export function PlanCard({ day, onOpen }: PlanCardProps) {
               <td>
                 {stop.title}
                 {stop.detail ? <small>{stop.detail}</small> : null}
+                {stop.mapUrl ? (
+                  <a className="map-link" href={stop.mapUrl} target="_blank" rel="noreferrer">
+                    지도 보기
+                  </a>
+                ) : null}
               </td>
               {stop.image ? <Thumb src={stop.image} onOpen={onOpen} /> : null}
             </tr>

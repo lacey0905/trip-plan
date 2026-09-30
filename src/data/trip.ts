@@ -4,6 +4,7 @@ export type Stop = {
   detail?: string;
   emphasis?: boolean;
   image?: string;
+  mapUrl?: string;
 };
 
 export type PickLine = {

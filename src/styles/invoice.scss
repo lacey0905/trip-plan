@@ -21,7 +21,6 @@ body {
   width: min(100%, 430px);
   min-height: 100vh;
   margin: 0 auto;
-  padding-top: calc(49px + env(safe-area-inset-top));
   padding-bottom: calc(68px + env(safe-area-inset-bottom));
   color: var(--ink);
   background: var(--paper);
@@ -31,39 +30,8 @@ body {
   word-break: keep-all;
 }
 
-.gnb {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  z-index: 6;
-  display: flex;
-  gap: 18px;
-  width: min(100%, 430px);
-  padding: calc(8px + env(safe-area-inset-top)) 20px 0;
-  border-bottom: 1px solid var(--line);
-  background: var(--paper);
-  transform: translateX(-50%);
-
-  a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 40px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-    color: var(--muted);
-    font: 500 12px/1 var(--mono);
-    letter-spacing: 0.06em;
-    text-decoration: none;
-
-    &[aria-current="page"] {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-  }
-}
-
 .cover {
-  padding: 8px 20px 4px;
+  padding: calc(22px + env(safe-area-inset-top)) 20px 4px;
 }
 
 .doc-no,
@@ -424,6 +392,15 @@ caption {
   color: var(--muted);
   font-size: 12px;
   font-weight: 400;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--accent);
+  font: 500 11px/1.4 var(--mono);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .key {

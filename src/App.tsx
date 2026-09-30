@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CostCard } from "./components/CostCard";
 import { Cover } from "./components/Cover";
-import { Gnb } from "./components/Gnb";
 import { PhotoViewer } from "./components/PhotoViewer";
 import { PlanCard } from "./components/PlanCard";
 import { TotalBar } from "./components/TotalBar";
@@ -73,7 +72,6 @@ export function App() {
 
   return (
     <>
-      <Gnb mode={mode} />
       <Cover ref={coverRef} trip={trip} saving={saving} saveLabel={saveLabel} onSave={() => void handleSave()} />
       <main key={mode} ref={mainRef}>
         {trip.days.map((day) => (

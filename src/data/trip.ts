@@ -43,8 +43,8 @@ export const trip = {
   dates: "10.04–10.10 · 6박 7일",
   stays: "R&F 프린세스 코브 5박",
   route: "인천 → 상하이 → 싱가포르 ↔ 조호바루",
-  totalLabel: "1인 예상비용",
-  totalAmount: "1,943,200원",
+  totalLabel: "식비 제외 · 1인 예상비용",
+  totalAmount: "1,523,200원",
   credits: "사진 Wikimedia Commons · CC BY / CC BY-SA / CC0",
   days: [
     {
@@ -257,7 +257,7 @@ export const trip = {
       id: "1007",
       date: "10.07 수 · DAY 4",
       title: "올드시티",
-      summary: "포트캐닝 → A 또는 B → 클락키",
+      summary: "포트캐닝 → A 또는 B → 차이나타운",
       picks: [
         { label: "A", text: "국립박물관 → 차임스 → 래플스 → 세인트 앤드류" },
         { label: "B", text: "차임스 → 래플스 → 세인트 앤드류 → 내셔널 갤러리" },
@@ -307,13 +307,6 @@ export const trip = {
           time: "17:30",
           title: "저녁 · 차이나타운",
           detail: "칠리크랩 · 만터우 · 음료 · 예상 S$50",
-        },
-        {
-          time: "19:30",
-          title: "클락키 크루즈",
-          detail: "약 40분 · 이후 힐 스트리트 경찰서",
-          emphasis: true,
-          image: photo("Clarke_Quay_at_night,_Singapore,_20240205_1946_6058.jpg"),
         },
         {
           time: "20:30",
@@ -534,18 +527,17 @@ export const trip = {
     },
   ] satisfies DayPlan[],
   cost: {
-    caption: "1인 · S$1 = 1,100원",
+    caption: "1인 · S$1=1,100원 · RM1=350원",
     title: "비용",
-    note: "짐 있는 첫날·F1 날과 유니버설 가는 편만 Grab, 나머지 국경 이동 5회는 CW2. 식비는 S$392+RM125 기준으로 카페·음료와 테마파크·서킷 할증 포함. S$1=1,100원·RM1=350원 가정.",
+    note: "국경 이동은 Grab 3회와 CW2 5회. 식비·창이공항 심야 택시·추가 MRT는 제외. 항공·숙박·F1은 결제내역 확인 필요.",
     rows: [
       { label: "항공", detail: "왕복 · 투어비스", amount: "636,000" },
       { label: "숙박", detail: "3베드룸 · 2인 5박 총 400,000", amount: "200,000/인" },
       {
         label: "교통·입장",
-        detail: "MRT·유니버설·크루즈 151,100 + 국경교통 158,200 + 기타 22,900",
-        amount: "332,200",
+        detail: "MRT 31,900 + 센토사 4,400 + 유니버설 88,400 + 크루즈 30,800 + 가든스 50,600 + 국경 Grab 3회 139,000 + CW2 5회 19,200 + 기타 22,900",
+        amount: "387,200",
       },
-      { label: "식비", detail: "식사·카페·음료 · 1인 예상", amount: "475,000" },
       { label: "F1", detail: "티켓 · 9일", amount: "300,000" },
     ] satisfies CostRow[],
   },

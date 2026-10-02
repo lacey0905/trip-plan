@@ -44,15 +44,15 @@ export const trip = {
   stays: "R&F 프린세스 코브 5박",
   route: "인천 → 상하이 → 싱가포르 ↔ 조호바루",
   totalLabel: "식비 제외 · 1인 예상비용",
-  totalAmount: "1,523,200원",
+  totalAmount: "1,545,200원",
   credits: "사진 Wikimedia Commons · CC BY / CC BY-SA / CC0",
   days: [
     {
       id: "1004",
       date: "10.04 일 · DAY 1",
       title: "출국 · 도착",
-      summary: "인천 T1 → 푸둥 T1 → 창이 T3 → 조호바루",
-      note: "싱가포르는 한국보다 1시간 느립니다.",
+      summary: "인천 T1 → 푸둥 T1 → 창이 T3 → 쥬얼 → 조호바루",
+      note: "현지 시간 · 한국보다 1시간 느림. 입국 지연 시 21:00 쇼로 변경하고 차량 픽업 조정. 국경 혼잡에 따라 체크인 지연 가능.",
       stops: [
         {
           time: "06:25",
@@ -79,60 +79,56 @@ export const trip = {
           emphasis: true,
         },
         {
-          time: "13:30",
-          title: "점심 · 기내",
-          detail: "기내식 · 항공권 포함",
-        },
-        {
           time: "17:00",
           title: "창이공항 도착",
-          detail: "당일 · 터미널 3",
+          detail: "당일 · 터미널 3 · 착륙 후 입국장 이동",
           emphasis: true,
           image: photo("Singapore_Changi_Airport_Terminal_3_%28113212%29.jpg"),
         },
         {
-          time: "18:20",
-          title: "마리나베이 이동",
-          detail: "입국·수하물 후 · MRT 약 50분",
-        },
-        {
-          time: "19:20",
-          title: "캐리어 보관",
-          detail: "Floral Fantasy · 대형 락커 2개 S$16 · 1인 S$8",
+          time: "17:00–18:20",
+          title: "입국심사·수하물 수령",
+          detail: "입국심사·수하물·세관 약 1시간 20분 · 혼잡 시 지연",
           emphasis: true,
         },
         {
-          time: "19:40",
-          title: "싱가포르 리버 크루즈",
-          detail: "Bayfront South Jetty · 관광 범보트 40분 · S$28",
+          time: "18:20–18:40",
+          title: "쥬얼창이",
+          detail: "T3 연결 통로로 이동 · 캐리어 동반 · 도보 여유 20분",
           emphasis: true,
-          image: photo("Singapore_Merlion-at-Marina-Bay-02.jpg"),
+          image: photo("Rain_Vortex_Jewel_Changi_Airport.jpg"),
         },
         {
-          time: "20:25",
-          title: "저녁 · MBS",
-          detail: "레스토랑 · 커피·음료 포함 · 예상 S$52",
+          time: "18:40–19:40",
+          title: "저녁 · 쥬얼",
+          detail: "쥬얼 식당 · 대기 포함 1시간 · 식비 별도",
         },
         {
-          time: "21:00",
-          title: "스펙트라",
-          detail: "라이트·워터 쇼",
+          time: "19:40–20:00",
+          title: "레인 보텍스 · 쇼 대기",
+          detail: "식사 후 폭포로 이동 · 관람 위치 확보",
+        },
+        {
+          time: "20:00",
+          title: "라이트·뮤직 쇼",
+          detail: "20:00 회차 관람 · 일요일 21:00·22:00 추가 회차",
           emphasis: true,
         },
         {
-          time: "21:20",
-          title: "캐리어 찾기",
-          detail: "Floral Fantasy 락커",
+          time: "20:15–20:45",
+          title: "차량 픽업 장소 이동",
+          detail: "쇼 관람 후 화장실 · 캐리어 정리 · 예약 기사와 만남",
         },
         {
-          time: "21:30",
+          time: "20:45",
           title: "조호바루 이동",
-          detail: "Grab Cross-Border · 차량 약 S$100 · 1인 S$50",
+          detail: "창이 출발 · 국경택시 · 차량 약 S$140 · 1인 S$70",
+          emphasis: true,
         },
         {
-          time: "00:30",
+          time: "23:15 예상",
           title: "R&F 프린세스 코브 체크인",
-          detail: "3베드룸 패밀리 스위트 · Jalan Tanjung Puteri",
+          detail: "국경 포함 약 2시간 30분 · 3베드룸 패밀리 스위트",
           image:
             "https://pix8.agoda.net/hotelImages/12421213/0/689635efff9e3d276e6ef545396e0e3d.jpeg?va=1&ce=2&s=1024x768",
           mapUrl:
@@ -149,7 +145,7 @@ export const trip = {
       id: "1005",
       date: "10.05 월 · DAY 2",
       title: "마리나베이",
-      summary: "머라이언 → MBS → 가든스 → 라우파삿",
+      summary: "머라이언 → 크루즈 → 가든스 → 라우파삿",
       stops: [
         {
           time: "07:00",
@@ -162,6 +158,12 @@ export const trip = {
           title: "머라이언·에스플러네이드",
           detail: "플라이어는 선택 · 헬릭스 브리지로 이동",
           image: photo("Singapore_Merlion-at-Marina-Bay-02.jpg"),
+        },
+        {
+          time: "11:10",
+          title: "싱가포르 리버 크루즈",
+          detail: "Bayfront South Jetty · 관광 범보트 40분 · S$28",
+          emphasis: true,
         },
         {
           time: "12:30",
@@ -210,52 +212,6 @@ export const trip = {
     {
       id: "1006",
       date: "10.06 화 · DAY 3",
-      title: "유니버설",
-      summary: "호텔 → 비보시티 → 센토사",
-      stops: [
-        {
-          time: "07:00",
-          title: "유니버설 이동",
-          detail: "Grab Cross-Border · 약 RM240/차 · 1인 RM120",
-          image: photo("Monorail_shuttle_to_Sentosa_island.jpg"),
-        },
-        {
-          time: "10:00",
-          title: "유니버설 스튜디오",
-          detail: "6–8시간 · 88,400원",
-          emphasis: true,
-          image: photo("Universal_Studios_Singapore_globe,_20240206_1324_6457.jpg"),
-        },
-        {
-          time: "12:30",
-          title: "점심 · 유니버설",
-          detail: "파크 내부 식사 · 예상 S$30",
-        },
-        {
-          time: "15:30",
-          title: "간식 · 음료",
-          detail: "유니버설 내부 · 예상 S$25",
-        },
-        {
-          time: "18:30",
-          title: "저녁 · 비보시티",
-          detail: "레스토랑 · 음료 · 예상 S$25",
-        },
-        {
-          time: "20:00",
-          title: "조호바루 복귀",
-          detail: "MRT → Queen Street → CW2 → JB CIQ · S$4.80",
-        },
-        {
-          time: "숙박",
-          title: "R&F 프린세스 코브",
-          detail: "3박째",
-        },
-      ],
-    },
-    {
-      id: "1007",
-      date: "10.07 수 · DAY 4",
       title: "올드시티",
       summary: "포트캐닝 → A 또는 B → 차이나타운",
       picks: [
@@ -316,13 +272,13 @@ export const trip = {
         {
           time: "숙박",
           title: "R&F 프린세스 코브",
-          detail: "4박째",
+          detail: "3박째",
         },
       ],
     },
     {
-      id: "1008",
-      date: "10.08 목 · DAY 5",
+      id: "1007",
+      date: "10.07 수 · DAY 4",
       title: "조호바루",
       summary: "구시가지 → 시티스퀘어 → 미드밸리",
       stops: [
@@ -370,6 +326,52 @@ export const trip = {
           time: "20:30",
           title: "R&F 복귀",
           detail: "Grab 약 RM15",
+        },
+        {
+          time: "숙박",
+          title: "R&F 프린세스 코브",
+          detail: "4박째",
+        },
+      ],
+    },
+    {
+      id: "1008",
+      date: "10.08 목 · DAY 5",
+      title: "유니버설",
+      summary: "호텔 → 비보시티 → 센토사",
+      stops: [
+        {
+          time: "07:00",
+          title: "유니버설 이동",
+          detail: "Grab Cross-Border · 약 RM240/차 · 1인 RM120",
+          image: photo("Monorail_shuttle_to_Sentosa_island.jpg"),
+        },
+        {
+          time: "10:00",
+          title: "유니버설 스튜디오",
+          detail: "6–8시간 · 88,400원",
+          emphasis: true,
+          image: photo("Universal_Studios_Singapore_globe,_20240206_1324_6457.jpg"),
+        },
+        {
+          time: "12:30",
+          title: "점심 · 유니버설",
+          detail: "파크 내부 식사 · 예상 S$30",
+        },
+        {
+          time: "15:30",
+          title: "간식 · 음료",
+          detail: "유니버설 내부 · 예상 S$25",
+        },
+        {
+          time: "18:30",
+          title: "저녁 · 비보시티",
+          detail: "레스토랑 · 음료 · 예상 S$25",
+        },
+        {
+          time: "20:00",
+          title: "조호바루 복귀",
+          detail: "MRT → Queen Street → CW2 → JB CIQ · S$4.80",
         },
         {
           time: "숙박",
@@ -529,14 +531,14 @@ export const trip = {
   cost: {
     caption: "1인 · S$1=1,100원 · RM1=350원",
     title: "비용",
-    note: "국경 이동은 Grab 3회와 CW2 5회. 식비·창이공항 심야 택시·추가 MRT는 제외. 항공·숙박·F1은 결제내역 확인 필요.",
+    note: "국경은 창이 출발 택시 1회, 유니버설·F1 가는 Grab 2회, CW2 5회. 식비·창이공항 심야 택시·추가 MRT는 제외. 항공·숙박·F1은 결제내역 확인 필요.",
     rows: [
       { label: "항공", detail: "왕복 · 투어비스", amount: "636,000" },
       { label: "숙박", detail: "3베드룸 · 2인 5박 총 400,000", amount: "200,000/인" },
       {
         label: "교통·입장",
-        detail: "MRT 31,900 + 센토사 4,400 + 유니버설 88,400 + 크루즈 30,800 + 가든스 50,600 + 국경 Grab 3회 139,000 + CW2 5회 19,200 + 기타 22,900",
-        amount: "387,200",
+        detail: "MRT 31,900 + 센토사 4,400 + 유니버설 88,400 + 크루즈 30,800 + 가든스 50,600 + 국경 3회 161,000 + CW2 5회 19,200 + 기타 22,900",
+        amount: "409,200",
       },
       { label: "F1", detail: "티켓 · 9일", amount: "300,000" },
     ] satisfies CostRow[],

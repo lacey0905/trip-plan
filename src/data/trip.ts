@@ -43,7 +43,7 @@ export const trip = {
   dates: "10.04–10.10 · 6박 7일",
   stays: "R&F 프린세스 코브 5박",
   route: "인천 → 상하이 → 싱가포르 ↔ 조호바루",
-  totalLabel: "식비 제외 · 1인 예상비용",
+  totalLabel: "식비·나이트사파리 추가비 제외 · 1인 예상비용",
   totalAmount: "1,545,200원",
   credits: "사진 Wikimedia Commons · CC BY / CC BY-SA / CC0",
   days: [
@@ -279,8 +279,9 @@ export const trip = {
     {
       id: "1007",
       date: "10.07 수 · DAY 4",
-      title: "조호바루",
-      summary: "구시가지 → 시티스퀘어 → 미드밸리",
+      title: "조호바루 · 나이트사파리",
+      summary: "구시가지 → 시티스퀘어 → 싱가포르 나이트사파리",
+      note: "현지 시간 · 미드밸리 대신 나이트사파리. 19:15 전후 입장 슬롯 예약 필요. 국경 왕복 차량 사전 예약 · 이동은 혼잡에 따라 지연 가능. 입장권·추가 교통비는 총액에 미반영.",
       stops: [
         {
           time: "09:30",
@@ -305,27 +306,43 @@ export const trip = {
           detail: "현지식 · 예상 RM40",
         },
         {
-          time: "13:30",
+          time: "13:00–14:30",
           title: "시티스퀘어 · KOMTAR",
           detail: "쇼핑 · 카페 · 도보 이동",
           image: photo("Jb_city_square.jpg"),
         },
         {
-          time: "15:30",
-          title: "미드밸리 사우스키",
-          detail: "Grab 약 RM15 · 쇼핑 · 마사지 · 카페 RM25",
+          time: "14:30–15:00",
+          title: "카페 · 이동 준비",
+          detail: "쇼핑 마무리 · 여권 확인 · 예약 차량 픽업 장소 이동",
+        },
+        {
+          time: "15:00–18:00 예상",
+          title: "싱가포르 만다이 이동",
+          detail: "예약 국경 차량 · 출입국 포함 3시간 여유 · 목적지 나이트사파리",
           emphasis: true,
-          image: photo("Mid_Valley_Southkey.jpg"),
         },
         {
-          time: "19:00",
-          title: "저녁 · 미드밸리",
-          detail: "레스토랑 · 음료 포함 · 예상 RM60",
+          time: "18:00–19:00",
+          title: "저녁 · 만다이",
+          detail: "현장 식당 · 식사 후 입장 준비 · 식비 별도",
         },
         {
-          time: "20:30",
-          title: "R&F 복귀",
-          detail: "Grab 약 RM15",
+          time: "19:15–21:45",
+          title: "나이트사파리",
+          detail: "예약 슬롯 기준 입장 · 트램 + 도보 트레일 · 야행성 동물 관람",
+          emphasis: true,
+          mapUrl: "https://www.google.com/maps/search/?api=1&query=Night%20Safari%20Singapore",
+        },
+        {
+          time: "22:00",
+          title: "조호바루 복귀",
+          detail: "예약 국경 차량 · R&F까지 1시간 30분–2시간 30분 예상 · 추가 교통비 별도",
+        },
+        {
+          time: "23:30–00:30 예상",
+          title: "R&F 도착 · 휴식",
+          detail: "국경 혼잡에 따라 지연 · 다음 날 유니버설 출발 07:00",
         },
         {
           time: "숙박",
@@ -531,7 +548,7 @@ export const trip = {
   cost: {
     caption: "1인 · S$1=1,100원 · RM1=350원",
     title: "비용",
-    note: "국경은 창이 출발 택시 1회, 유니버설·F1 가는 Grab 2회, CW2 5회. 식비·창이공항 심야 택시·추가 MRT는 제외. 항공·숙박·F1은 결제내역 확인 필요.",
+    note: "기존 비용 기준: 창이 출발 택시 1회, 유니버설·F1 가는 Grab 2회, CW2 5회. 나이트사파리 입장권·국경 왕복 차량 비용은 추가 확인 후 반영 필요. 미드밸리 삭제에 따른 기존 교통비 조정도 미반영. 식비·창이공항 심야 택시·추가 MRT는 제외. 항공·숙박·F1은 결제내역 확인 필요.",
     rows: [
       { label: "항공", detail: "왕복 · 투어비스", amount: "636,000" },
       { label: "숙박", detail: "3베드룸 · 2인 5박 총 400,000", amount: "200,000/인" },
